@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_school_fee_receipt_document">
+        <t t-call="web.html_container">
+            <t t-set="school_config" t-value="env['school.config'].get_config()"/>
+            <t t-foreach="docs" t-as="o">
+                <div class="page">
+                    <div class="text-center mb-4">
+                        <img t-if="school_config.logo" t-att-src="image_data_uri(school_config.logo)"
+                             style="max-height: 80px;"/>
+                        <h2 t-out="school_config.name"/>
+                        <div t-out="school_config.address"/>
+                        <h3>Fee Payment Receipt</h3>
+                    </div>
+                    <table class="table table-sm table-bordered">
+                        <tr>
+                            <td><strong>Receipt No.</strong></td>
+                            <td t-out="o.name"/>
+                            <td><strong>Date</strong></td>
+                            <td t-out="o.payment_date"/>
+                        </tr>
+                        <tr>
+                            <td><strong>Student</strong></td>
+                            <td t-out="o.student_id.name"/>
+                            <td><strong>Admission No.</strong></td>
+                            <td t-out="o.student_id.admission_no"/>
+                        </tr>
+                        <tr>
+                            <td><strong>Invoice</strong></td>
+                            <td t-out="o.invoice_id.name"/>
+                            <td><strong>Payment Mode</strong></td>
+                            <td t-out="o.payment_mode"/>
+                        </tr>
+                        <tr>
+                            <td><strong>Reference No.</strong></td>
+                            <td t-out="o.reference_no"/>
+                            <td><strong>Amount Paid</strong></td>
+                            <td><span t-out="o.amount"/></td>
+                        </tr>
+                    </table>
+                    <div class="row mt-5">
+                        <div class="col-6"/>
+                        <div class="col-6 text-center">
+                            <div>Authorized Signatory</div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

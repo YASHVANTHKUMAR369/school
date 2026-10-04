@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_school_admission_enquiry_list" model="ir.ui.view">
+        <field name="name">school.admission.enquiry.list</field>
+        <field name="model">school.admission.enquiry</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="state == 'lost'" decoration-success="state == 'converted'">
+                <field name="name"/>
+                <field name="child_name"/>
+                <field name="standard_applied_id"/>
+                <field name="mobile"/>
+                <field name="enquiry_date"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_school_admission_enquiry_form" model="ir.ui.view">
+        <field name="name">school.admission.enquiry.form</field>
+        <field name="model">school.admission.enquiry</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_mark_contacted" string="Mark Contacted" type="object"
+                            invisible="state != 'new'"/>
+                    <button name="action_convert_to_application" string="Convert to Application" type="object"
+                            class="oe_highlight" invisible="state not in ('new', 'contacted')"/>
+                    <button name="action_mark_lost" string="Mark Lost" type="object"
+                            invisible="state in ('converted', 'lost')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="new,contacted,converted"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="child_name" placeholder="Child Name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="enquiry_date"/>
+                            <field name="dob"/>
+                            <field name="gender"/>
+                            <field name="standard_applied_id"/>
+                        </group>
+                        <group>
+                            <field name="parent_name"/>
+                            <field name="mobile"/>
+                            <field name="email"/>
+                            <field name="source"/>
+                            <field name="next_followup_date"/>
+                        </group>
+                    </group>
+                    <field name="remark" placeholder="Remarks..."/>
+                    <field name="application_id" readonly="1" invisible="not application_id"/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_school_admission_enquiry" model="ir.actions.act_window">
+        <field name="name">Enquiries</field>
+        <field name="res_model">school.admission.enquiry</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

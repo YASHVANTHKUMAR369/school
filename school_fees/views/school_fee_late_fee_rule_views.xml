@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_school_fee_late_fee_rule_list" model="ir.ui.view">
+        <field name="name">school.fee.late.fee.rule.list</field>
+        <field name="model">school.fee.late.fee.rule</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="name"/>
+                <field name="fee_head_id"/>
+                <field name="grace_days"/>
+                <field name="calc_type"/>
+                <field name="value"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_school_fee_late_fee_rule" model="ir.actions.act_window">
+        <field name="name">Late Fee Rules</field>
+        <field name="res_model">school.fee.late.fee.rule</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

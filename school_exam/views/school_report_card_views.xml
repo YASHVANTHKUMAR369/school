@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_school_report_card_list" model="ir.ui.view">
+        <field name="name">school.report.card.list</field>
+        <field name="model">school.report.card</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="exam_id"/>
+                <field name="student_id"/>
+                <field name="total_marks_obtained"/>
+                <field name="total_max_marks"/>
+                <field name="percentage"/>
+                <field name="overall_grade"/>
+                <field name="rank_in_section"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_school_report_card_form" model="ir.ui.view">
+        <field name="name">school.report.card.form</field>
+        <field name="model">school.report.card</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="%(action_report_school_report_card)d" string="Print Report Card" type="action"
+                            class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="student_id"/>
+                            <field name="exam_id"/>
+                        </group>
+                        <group>
+                            <field name="total_marks_obtained"/>
+                            <field name="total_max_marks"/>
+                            <field name="percentage"/>
+                            <field name="overall_grade"/>
+                            <field name="rank_in_section"/>
+                            <field name="attendance_percentage"/>
+                            <field name="state"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_school_report_card" model="ir.actions.act_window">
+        <field name="name">Report Cards</field>
+        <field name="res_model">school.report.card</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_school_fee_head_admin,school.fee.head.admin,model_school_fee_head,school_core.group_school_admin,1,1,1,1
+access_school_fee_head_accountant,school.fee.head.accountant,model_school_fee_head,group_school_accountant,1,0,0,0
+access_school_fee_structure_admin,school.fee.structure.admin,model_school_fee_structure,school_core.group_school_admin,1,1,1,1
+access_school_fee_structure_accountant,school.fee.structure.accountant,model_school_fee_structure,group_school_accountant,1,1,1,0
+access_school_fee_structure_line_admin,school.fee.structure.line.admin,model_school_fee_structure_line,school_core.group_school_admin,1,1,1,1
+access_school_fee_structure_line_accountant,school.fee.structure.line.accountant,model_school_fee_structure_line,group_school_accountant,1,1,1,0
+access_school_fee_late_fee_rule_admin,school.fee.late.fee.rule.admin,model_school_fee_late_fee_rule,school_core.group_school_admin,1,1,1,1
+access_school_fee_late_fee_rule_accountant,school.fee.late.fee.rule.accountant,model_school_fee_late_fee_rule,group_school_accountant,1,0,0,0
+access_school_fee_invoice_admin,school.fee.invoice.admin,model_school_fee_invoice,school_core.group_school_admin,1,1,1,1
+access_school_fee_invoice_accountant,school.fee.invoice.accountant,model_school_fee_invoice,group_school_accountant,1,1,1,0
+access_school_fee_invoice_line_admin,school.fee.invoice.line.admin,model_school_fee_invoice_line,school_core.group_school_admin,1,1,1,1
+access_school_fee_invoice_line_accountant,school.fee.invoice.line.accountant,model_school_fee_invoice_line,group_school_accountant,1,1,1,0
+access_school_fee_payment_admin,school.fee.payment.admin,model_school_fee_payment,school_core.group_school_admin,1,1,1,1
+access_school_fee_payment_accountant,school.fee.payment.accountant,model_school_fee_payment,group_school_accountant,1,1,1,0
+access_school_fee_bulk_invoice_wizard_accountant,school.fee.bulk.invoice.wizard.accountant,model_school_fee_bulk_invoice_wizard,group_school_accountant,1,1,1,1

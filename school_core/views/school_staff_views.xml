@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_school_staff_list" model="ir.ui.view">
+        <field name="name">school.staff.list</field>
+        <field name="model">school.staff</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="staff_code"/>
+                <field name="name"/>
+                <field name="mobile"/>
+                <field name="email"/>
+                <field name="gender"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_school_staff_form" model="ir.ui.view">
+        <field name="name">school.staff.form</field>
+        <field name="model">school.staff</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="photo" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Staff Name"/></h1>
+                        <field name="staff_code" readonly="1"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="mobile"/>
+                            <field name="email"/>
+                            <field name="gender"/>
+                            <field name="dob"/>
+                        </group>
+                        <group>
+                            <field name="aadhar_no"/>
+                            <field name="qualification"/>
+                            <field name="user_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Class Teacher Of">
+                            <field name="class_teacher_section_ids" readonly="1">
+                                <list>
+                                    <field name="standard_id"/>
+                                    <field name="name"/>
+                                    <field name="academic_year_id"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_school_staff" model="ir.actions.act_window">
+        <field name="name">Staff</field>
+        <field name="res_model">school.staff</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

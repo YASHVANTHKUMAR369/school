@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_school_library_member_list" model="ir.ui.view">
+        <field name="name">school.library.member.list</field>
+        <field name="model">school.library.member</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="member_code"/>
+                <field name="name"/>
+                <field name="partner_type"/>
+                <field name="max_books_allowed"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_school_library_member_form" model="ir.ui.view">
+        <field name="name">school.library.member.form</field>
+        <field name="model">school.library.member</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="member_code" readonly="1"/>
+                        <field name="partner_type"/>
+                        <field name="student_id" invisible="partner_type != 'student'"/>
+                        <field name="staff_id" invisible="partner_type != 'staff'"/>
+                        <field name="max_books_allowed"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_school_library_member" model="ir.actions.act_window">
+        <field name="name">Members</field>
+        <field name="res_model">school.library.member</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="board_cbse" model="school.board">
+        <field name="name">CBSE</field>
+        <field name="code">cbse</field>
+    </record>
+    <record id="board_icse" model="school.board">
+        <field name="name">ICSE</field>
+        <field name="code">icse</field>
+    </record>
+    <record id="board_state" model="school.board">
+        <field name="name">State Board</field>
+        <field name="code">state</field>
+    </record>
+</odoo>

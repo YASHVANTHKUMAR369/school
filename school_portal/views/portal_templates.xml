@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tile on the main /my home page linking into the school portal -->
+    <template id="portal_my_home_school" inherit_id="portal.portal_my_home">
+        <xpath expr="//div[@id='portal_common_category']" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">School</t>
+                <t t-set="text">Attendance, homework, exam results, fees, library and more</t>
+                <t t-set="url" t-value="'/my/school'"/>
+                <t t-set="config_card" t-value="True"/>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- Shared nav: child switcher + section links, included at the top of every /my/school/* page -->
+    <template id="portal_school_nav" name="School Portal Navigation">
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+            <div class="btn-group mb-2" t-if="students and len(students) > 1">
+                <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                    <t t-if="student" t-out="student.name"/>
+                    <t t-else="">Select Child</t>
+                </button>
+                <ul class="dropdown-menu">
+                    <li t-foreach="students" t-as="child">
+                        <a class="dropdown-item" t-attf-href="/my/school?student_id=#{child.id}" t-out="child.name"/>
+                    </li>
+                </ul>
+            </div>
+            <div t-elif="student" class="mb-2"><strong t-out="student.name"/></div>
+            <ul class="nav nav-pills mb-2">
+                <li class="nav-item"><a class="nav-link" href="/my/school">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="/my/school/attendance">Attendance</a></li>
+                <li class="nav-item"><a class="nav-link" href="/my/school/timetable">Timetable</a></li>
+                <li class="nav-item"><a class="nav-link" href="/my/school/homework">Homework</a></li>
+                <li class="nav-item"><a class="nav-link" href="/my/school/exam">Exam Results</a></li>
+                <li class="nav-item"><a class="nav-link" href="/my/school/fees">Fees</a></li>
+                <li class="nav-item"><a class="nav-link" href="/my/school/library">Library</a></li>
+                <li class="nav-item"><a class="nav-link" href="/my/school/transport">Transport</a></li>
+                <li class="nav-item"><a class="nav-link" href="/my/school/hostel">Hostel</a></li>
+                <li class="nav-item"><a class="nav-link" href="/my/school/notices">Notices</a></li>
+            </ul>
+        </div>
+    </template>
+
+    <template id="portal_school_dashboard" name="School Dashboard">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="False"/>
+            <div class="container">
+                <h2>School Dashboard</h2>
+                <t t-call="school_portal.portal_school_nav"/>
+                <div t-if="not student" class="alert alert-info">No children are linked to your account yet.</div>
+                <div t-else="" class="row g-3">
+                    <div class="col-md-4">
+                        <div class="card"><div class="card-body">
+                            <h5 class="card-title">Student</h5>
+                            <p><span t-out="student.name"/><br/>
+                               <span t-out="student.standard_id.name"/> - <span t-out="student.section_id.name"/><br/>
+                               Admission No: <span t-out="student.admission_no"/>
+                            </p>
+                        </div></div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_school_attendance" name="School Attendance">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="False"/>
+            <div class="container">
+                <h2>Attendance</h2>
+                <t t-call="school_portal.portal_school_nav"/>
+                <table class="table table-sm">
+                    <thead><tr><th>Date</th><th>Status</th><th>Remark</th></tr></thead>
+                    <tbody>
+                        <tr t-foreach="records" t-as="rec">
+                            <td t-out="rec.date"/>
+                            <td t-out="rec.state"/>
+                            <td t-out="rec.remark"/>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_school_timetable" name="School Timetable">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="False"/>
+            <div class="container">
+                <h2>Timetable</h2>
+                <t t-call="school_portal.portal_school_nav"/>
+                <table class="table table-sm">
+                    <thead><tr><th>Day</th><th>Period</th><th>Subject</th><th>Teacher</th></tr></thead>
+                    <tbody>
+                        <tr t-foreach="slots" t-as="slot">
+                            <td t-out="day_labels.get(slot.day_of_week)"/>
+                            <td t-out="slot.period_no"/>
+                            <td t-out="slot.subject_id.name"/>
+                            <td t-out="slot.staff_id.name"/>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_school_homework" name="School Homework">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="False"/>
+            <div class="container">
+                <h2>Homework</h2>
+                <t t-call="school_portal.portal_school_nav"/>
+                <div t-foreach="submissions" t-as="sub" class="card mb-2">
+                    <div class="card-body">
+                        <h5 class="card-title" t-out="sub.homework_id.name"/>
+                        <p>
+                            Subject: <span t-out="sub.homework_id.subject_id.name"/> |
+                            Due: <span t-out="sub.due_date"/> |
+                            Status: <span t-out="sub.state"/>
+                        </p>
+                        <div t-out="sub.homework_id.description"/>
+                        <form t-if="sub.state == 'pending'" t-attf-action="/my/school/homework/#{sub.id}/submit" method="post" class="mt-2">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <textarea name="text_answer" class="form-control mb-2" placeholder="Your answer..."/>
+                            <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                        </form>
+                        <div t-else="" class="text-muted">
+                            Submitted: <span t-out="sub.submission_date"/>
+                            <span t-if="sub.marks_obtained"> | Marks: <span t-out="sub.marks_obtained"/></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_school_exam" name="School Exam Results">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="False"/>
+            <div class="container">
+                <h2>Exam Results</h2>
+                <t t-call="school_portal.portal_school_nav"/>
+                <table class="table table-sm">
+                    <thead><tr><th>Exam</th><th>Percentage</th><th>Grade</th><th>Rank</th><th></th></tr></thead>
+                    <tbody>
+                        <tr t-foreach="cards" t-as="card">
+                            <td t-out="card.exam_id.name"/>
+                            <td><span t-out="'%.2f' % card.percentage"/>%</td>
+                            <td t-out="card.overall_grade"/>
+                            <td t-out="card.rank_in_section"/>
+                            <td>
+                                <a t-attf-href="/my/school/exam/#{card.id}/report_card" class="btn btn-sm btn-outline-primary">
+                                    Download Report Card
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_school_fees" name="School Fees">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="False"/>
+            <div class="container">
+                <h2>Fees</h2>
+                <t t-call="school_portal.portal_school_nav"/>
+                <h4>Invoices</h4>
+                <table class="table table-sm">
+                    <thead><tr><th>Invoice</th><th>Due Date</th><th>Total</th><th>Paid</th><th>Due</th><th>Status</th></tr></thead>
+                    <tbody>
+                        <tr t-foreach="invoices" t-as="inv">
+                            <td t-out="inv.name"/>
+                            <td t-out="inv.due_date"/>
+                            <td t-out="inv.total_amount"/>
+                            <td t-out="inv.amount_paid"/>
+                            <td t-out="inv.amount_due"/>
+                            <td t-out="inv.state"/>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4>Payment History</h4>
+                <table class="table table-sm">
+                    <thead><tr><th>Receipt</th><th>Date</th><th>Amount</th><th>Mode</th><th></th></tr></thead>
+                    <tbody>
+                        <tr t-foreach="payments" t-as="pay">
+                            <td t-out="pay.name"/>
+                            <td t-out="pay.payment_date"/>
+                            <td t-out="pay.amount"/>
+                            <td t-out="pay.payment_mode"/>
+                            <td>
+                                <a t-attf-href="/my/school/fees/receipt/#{pay.id}" class="btn btn-sm btn-outline-primary">
+                                    Download Receipt
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_school_library" name="School Library">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="False"/>
+            <div class="container">
+                <h2>Library</h2>
+                <t t-call="school_portal.portal_school_nav"/>
+                <table class="table table-sm">
+                    <thead><tr><th>Book</th><th>Issue Date</th><th>Due Date</th><th>Return Date</th><th>Fine</th><th>Status</th></tr></thead>
+                    <tbody>
+                        <tr t-foreach="circulations" t-as="circ">
+                            <td t-out="circ.book_id.title"/>
+                            <td t-out="circ.issue_date"/>
+                            <td t-out="circ.due_date"/>
+                            <td t-out="circ.return_date"/>
+                            <td t-out="circ.fine_amount"/>
+                            <td t-out="circ.state"/>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_school_transport" name="School Transport">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="False"/>
+            <div class="container">
+                <h2>Transport</h2>
+                <t t-call="school_portal.portal_school_nav"/>
+                <div t-if="allocation">
+                    <p>Route: <strong t-out="allocation.route_id.name"/></p>
+                    <p>Stop: <strong t-out="allocation.stop_id.name"/></p>
+                    <p>Pickup Time: <span t-out="allocation.stop_id.pickup_time"/></p>
+                    <p>Drop Time: <span t-out="allocation.stop_id.drop_time"/></p>
+                </div>
+                <div t-else="" class="alert alert-info">No transport allocation found.</div>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_school_hostel" name="School Hostel">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="False"/>
+            <div class="container">
+                <h2>Hostel</h2>
+                <t t-call="school_portal.portal_school_nav"/>
+                <div t-if="allocation">
+                    <p>Hostel: <strong t-out="allocation.hostel_id.name"/></p>
+                    <p>Room: <strong t-out="allocation.room_id.room_no"/></p>
+                    <p>Bed: <strong t-out="allocation.bed_id.bed_no"/></p>
+                </div>
+                <div t-else="" class="alert alert-info">No hostel allocation found.</div>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_school_notices" name="School Notices">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="False"/>
+            <div class="container">
+                <h2>Notices</h2>
+                <t t-call="school_portal.portal_school_nav"/>
+                <div t-foreach="notices" t-as="notice" class="card mb-2">
+                    <div class="card-body">
+                        <h5 class="card-title" t-out="notice.title"/>
+                        <p class="text-muted" t-out="notice.notice_date"/>
+                        <div t-out="notice.body"/>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

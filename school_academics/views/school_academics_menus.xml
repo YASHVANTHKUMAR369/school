@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_school_academics_root" name="Academics" parent="school_core.menu_school_root" sequence="20"/>
+    <menuitem id="menu_school_timetable" name="Timetable" parent="menu_school_academics_root"
+              action="action_school_timetable_slot" sequence="10"/>
+    <menuitem id="menu_school_syllabus" name="Syllabus Tracker" parent="menu_school_academics_root"
+              action="action_school_syllabus_topic" sequence="20"/>
+    <menuitem id="menu_school_homework" name="Homework" parent="menu_school_academics_root"
+              action="action_school_homework" sequence="30"/>
+</odoo>

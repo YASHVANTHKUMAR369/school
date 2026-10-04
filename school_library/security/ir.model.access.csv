@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_school_library_category_admin,school.library.category.admin,model_school_library_category,school_core.group_school_admin,1,1,1,1
+access_school_library_category_librarian,school.library.category.librarian,model_school_library_category,group_school_librarian,1,1,1,0
+access_school_library_book_admin,school.library.book.admin,model_school_library_book,school_core.group_school_admin,1,1,1,1
+access_school_library_book_librarian,school.library.book.librarian,model_school_library_book,group_school_librarian,1,1,1,0
+access_school_library_book_copy_admin,school.library.book.copy.admin,model_school_library_book_copy,school_core.group_school_admin,1,1,1,1
+access_school_library_book_copy_librarian,school.library.book.copy.librarian,model_school_library_book_copy,group_school_librarian,1,1,1,0
+access_school_library_member_admin,school.library.member.admin,model_school_library_member,school_core.group_school_admin,1,1,1,1
+access_school_library_member_librarian,school.library.member.librarian,model_school_library_member,group_school_librarian,1,1,1,0
+access_school_library_circulation_admin,school.library.circulation.admin,model_school_library_circulation,school_core.group_school_admin,1,1,1,1
+access_school_library_circulation_librarian,school.library.circulation.librarian,model_school_library_circulation,group_school_librarian,1,1,1,0

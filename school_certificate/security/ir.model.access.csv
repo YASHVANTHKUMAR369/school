@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_school_certificate_admin,school.certificate.admin,model_school_certificate,school_core.group_school_admin,1,1,1,1
+access_school_certificate_principal,school.certificate.principal,model_school_certificate,school_core.group_school_principal,1,1,1,0
+access_school_id_card_template_admin,school.id.card.template.admin,model_school_id_card_template,school_core.group_school_admin,1,1,1,1

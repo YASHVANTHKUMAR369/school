@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_school_leave_type_list" model="ir.ui.view">
+        <field name="name">school.leave.type.list</field>
+        <field name="model">school.leave.type</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="name"/>
+                <field name="applicable_to"/>
+                <field name="max_days_per_year"/>
+                <field name="carry_forward"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_school_leave_type" model="ir.actions.act_window">
+        <field name="name">Leave Types</field>
+        <field name="res_model">school.leave.type</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

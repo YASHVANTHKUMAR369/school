@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_school_department_admin,school.department.admin,model_school_department,school_core.group_school_admin,1,1,1,1
+access_school_department_hr,school.department.hr,model_school_department,group_school_hr_officer,1,1,1,0
+access_school_designation_admin,school.designation.admin,model_school_designation,school_core.group_school_admin,1,1,1,1
+access_school_designation_hr,school.designation.hr,model_school_designation,group_school_hr_officer,1,1,1,0
+access_school_salary_structure_admin,school.salary.structure.admin,model_school_salary_structure,school_core.group_school_admin,1,1,1,1
+access_school_salary_structure_hr,school.salary.structure.hr,model_school_salary_structure,group_school_hr_officer,1,1,1,0
+access_school_salary_structure_line_admin,school.salary.structure.line.admin,model_school_salary_structure_line,school_core.group_school_admin,1,1,1,1
+access_school_salary_structure_line_hr,school.salary.structure.line.hr,model_school_salary_structure_line,group_school_hr_officer,1,1,1,0
+access_school_payslip_admin,school.payslip.admin,model_school_payslip,school_core.group_school_admin,1,1,1,1
+access_school_payslip_hr,school.payslip.hr,model_school_payslip,group_school_hr_officer,1,1,1,0
+access_school_payslip_line_admin,school.payslip.line.admin,model_school_payslip_line,school_core.group_school_admin,1,1,1,1
+access_school_payslip_line_hr,school.payslip.line.hr,model_school_payslip_line,group_school_hr_officer,1,1,1,0

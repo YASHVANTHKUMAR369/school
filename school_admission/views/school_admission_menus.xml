@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_school_admission_root" name="Admission" parent="school_core.menu_school_root" sequence="10"/>
+    <menuitem id="menu_school_admission_enquiry" name="Enquiries" parent="menu_school_admission_root"
+              action="action_school_admission_enquiry" sequence="10"/>
+    <menuitem id="menu_school_admission_application" name="Applications" parent="menu_school_admission_root"
+              action="action_school_admission_application" sequence="20"/>
+
+    <menuitem id="menu_school_student_root" name="Students" parent="school_core.menu_school_root" sequence="8"
+              action="action_school_student"/>
+</odoo>

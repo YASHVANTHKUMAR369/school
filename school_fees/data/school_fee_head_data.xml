@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="fee_head_tuition" model="school.fee.head">
+        <field name="name">Tuition Fee</field>
+        <field name="code">TUITION</field>
+        <field name="is_recurring">quarterly</field>
+    </record>
+    <record id="fee_head_admission" model="school.fee.head">
+        <field name="name">Admission Fee</field>
+        <field name="code">ADMISSION</field>
+        <field name="is_recurring">one_time</field>
+    </record>
+    <record id="fee_head_transport" model="school.fee.head">
+        <field name="name">Transport Fee</field>
+        <field name="code">TRANSPORT</field>
+        <field name="is_recurring">monthly</field>
+    </record>
+    <record id="fee_head_hostel" model="school.fee.head">
+        <field name="name">Hostel Fee</field>
+        <field name="code">HOSTEL</field>
+        <field name="is_recurring">monthly</field>
+    </record>
+    <record id="fee_head_exam" model="school.fee.head">
+        <field name="name">Exam Fee</field>
+        <field name="code">EXAM</field>
+        <field name="is_recurring">annual</field>
+    </record>
+    <record id="fee_head_library" model="school.fee.head">
+        <field name="name">Library Fee</field>
+        <field name="code">LIBRARY</field>
+        <field name="is_recurring">annual</field>
+    </record>
+    <record id="fee_head_lab" model="school.fee.head">
+        <field name="name">Lab Fee</field>
+        <field name="code">LAB</field>
+        <field name="is_recurring">annual</field>
+    </record>
+    <record id="fee_head_activity" model="school.fee.head">
+        <field name="name">Activity / Misc Fee</field>
+        <field name="code">ACTIVITY</field>
+        <field name="is_recurring">annual</field>
+    </record>
+</odoo>

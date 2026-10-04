@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_school_salary_structure_list" model="ir.ui.view">
+        <field name="name">school.salary.structure.list</field>
+        <field name="model">school.salary.structure</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_school_salary_structure_form" model="ir.ui.view">
+        <field name="name">school.salary.structure.form</field>
+        <field name="model">school.salary.structure</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="name"/>
+                    <field name="line_ids">
+                        <list editable="bottom">
+                            <field name="component_name"/>
+                            <field name="component_type"/>
+                            <field name="calc_type"/>
+                            <field name="value"/>
+                        </list>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_school_salary_structure" model="ir.actions.act_window">
+        <field name="name">Salary Structures</field>
+        <field name="res_model">school.salary.structure</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

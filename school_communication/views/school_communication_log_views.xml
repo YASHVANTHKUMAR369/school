@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_school_communication_log_list" model="ir.ui.view">
+        <field name="name">school.communication.log.list</field>
+        <field name="model">school.communication.log</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="status == 'failed'" decoration-success="status == 'sent'">
+                <field name="notice_id"/>
+                <field name="channel"/>
+                <field name="recipient_partner_id"/>
+                <field name="status" widget="badge"/>
+                <field name="sent_date"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_school_communication_log" model="ir.actions.act_window">
+        <field name="name">Communication Log</field>
+        <field name="res_model">school.communication.log</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

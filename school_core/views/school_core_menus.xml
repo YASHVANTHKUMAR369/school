@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_school_root" name="School" sequence="5" web_icon="school_core,static/description/icon.png"/>
+
+    <menuitem id="menu_school_masters" name="Masters" parent="menu_school_root" sequence="10"/>
+    <menuitem id="menu_school_academic_year" name="Academic Years" parent="menu_school_masters"
+              action="action_school_academic_year" sequence="10"/>
+    <menuitem id="menu_school_board" name="Boards" parent="menu_school_masters"
+              action="action_school_board" sequence="20"/>
+    <menuitem id="menu_school_standard" name="Standards" parent="menu_school_masters"
+              action="action_school_standard" sequence="30"/>
+    <menuitem id="menu_school_section" name="Sections" parent="menu_school_masters"
+              action="action_school_section" sequence="40"/>
+    <menuitem id="menu_school_subject" name="Subjects" parent="menu_school_masters"
+              action="action_school_subject" sequence="50"/>
+    <menuitem id="menu_school_staff" name="Staff" parent="menu_school_masters"
+              action="action_school_staff" sequence="60"/>
+    <menuitem id="menu_school_guardian" name="Guardians" parent="menu_school_masters"
+              action="action_school_guardian" sequence="70"/>
+
+    <menuitem id="menu_school_configuration" name="Configuration" parent="menu_school_root"
+              sequence="100" groups="school_core.group_school_admin"/>
+    <menuitem id="menu_school_config_settings" name="School Settings" parent="menu_school_configuration"
+              action="action_school_config" sequence="10"/>
+</odoo>

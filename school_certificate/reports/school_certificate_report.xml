@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_school_transfer_certificate" model="ir.actions.report">
+        <field name="name">Transfer Certificate</field>
+        <field name="model">school.certificate</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">school_certificate.report_school_transfer_certificate_document</field>
+        <field name="print_report_name">'Transfer Certificate - %s' % (object.student_id.name)</field>
+    </record>
+
+    <record id="action_report_school_bonafide_certificate" model="ir.actions.report">
+        <field name="name">Bonafide Certificate</field>
+        <field name="model">school.certificate</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">school_certificate.report_school_bonafide_certificate_document</field>
+        <field name="print_report_name">'Bonafide Certificate - %s' % (object.student_id.name)</field>
+    </record>
+</odoo>

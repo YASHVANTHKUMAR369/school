@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_school_student_list" model="ir.ui.view">
+        <field name="name">school.student.list</field>
+        <field name="model">school.student</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="state in ('alumni', 'tc_issued', 'struck_off')">
+                <field name="admission_no"/>
+                <field name="name"/>
+                <field name="standard_id"/>
+                <field name="section_id"/>
+                <field name="roll_no"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_school_student_search" model="ir.ui.view">
+        <field name="name">school.student.search</field>
+        <field name="model">school.student</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="admission_no"/>
+                <field name="standard_id"/>
+                <field name="section_id"/>
+                <filter name="active_students" string="Active" domain="[('state', '=', 'active')]"/>
+                <group>
+                    <filter name="group_standard" string="Standard" context="{'group_by': 'standard_id'}"/>
+                    <filter name="group_section" string="Section" context="{'group_by': 'section_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_school_student_form" model="ir.ui.view">
+        <field name="name">school.student.form</field>
+        <field name="model">school.student</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_activate" string="Activate" type="object"
+                            class="oe_highlight" invisible="state != 'admitted'"/>
+                    <button name="action_mark_alumni" string="Mark Alumni" type="object"
+                            invisible="state != 'active'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="admitted,active,alumni"/>
+                </header>
+                <sheet>
+                    <field name="photo" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="first_name" placeholder="First Name" class="oe_inline"/>
+                            <field name="last_name" placeholder="Last Name" class="oe_inline"/>
+                        </h1>
+                        <field name="admission_no" readonly="1"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="standard_id"/>
+                            <field name="section_id"/>
+                            <field name="academic_year_id"/>
+                            <field name="roll_no"/>
+                            <field name="admission_date"/>
+                        </group>
+                        <group>
+                            <field name="dob"/>
+                            <field name="gender"/>
+                            <field name="blood_group"/>
+                            <field name="category"/>
+                            <field name="religion"/>
+                            <field name="mother_tongue"/>
+                            <field name="nationality_id"/>
+                            <field name="aadhar_no"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Guardians">
+                            <field name="guardian_ids" widget="many2many_tags"/>
+                            <field name="primary_guardian_id"/>
+                        </page>
+                        <page string="Other Info">
+                            <group>
+                                <field name="previous_school"/>
+                                <field name="medical_notes"/>
+                                <field name="application_id" readonly="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_school_student" model="ir.actions.act_window">
+        <field name="name">Students</field>
+        <field name="res_model">school.student</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_active_students': 1}</field>
+    </record>
+</odoo>

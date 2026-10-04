@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_school_attendance_root" name="Attendance" parent="school_core.menu_school_root" sequence="25"/>
+    <menuitem id="menu_school_attendance_mark" name="Mark Attendance" parent="menu_school_attendance_root"
+              action="action_school_attendance_register_wizard" sequence="5"/>
+    <menuitem id="menu_school_student_attendance" name="Student Attendance" parent="menu_school_attendance_root"
+              action="action_school_student_attendance" sequence="10"/>
+    <menuitem id="menu_school_staff_attendance" name="Staff Attendance" parent="menu_school_attendance_root"
+              action="action_school_staff_attendance" sequence="20"/>
+</odoo>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_school_hostel_root" name="Hostel" parent="school_core.menu_school_root" sequence="55"/>
+    <menuitem id="menu_school_hostel_allocation" name="Allocations" parent="menu_school_hostel_root"
+              action="action_school_hostel_allocation" sequence="10"/>
+    <menuitem id="menu_school_hostel_room" name="Rooms" parent="menu_school_hostel_root"
+              action="action_school_hostel_room" sequence="20"/>
+    <menuitem id="menu_school_hostel" name="Hostels" parent="menu_school_hostel_root"
+              action="action_school_hostel" sequence="30"/>
+</odoo>

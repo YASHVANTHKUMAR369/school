@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_school_certificate_list" model="ir.ui.view">
+        <field name="name">school.certificate.list</field>
+        <field name="model">school.certificate</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="state == 'cancelled'">
+                <field name="certificate_no"/>
+                <field name="certificate_type"/>
+                <field name="student_id"/>
+                <field name="issue_date"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_school_certificate_form" model="ir.ui.view">
+        <field name="name">school.certificate.form</field>
+        <field name="model">school.certificate</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_issue" string="Issue" type="object"
+                            class="oe_highlight" invisible="state != 'draft'"/>
+                    <button name="action_cancel" string="Cancel" type="object"
+                            invisible="state != 'draft'"/>
+                    <button name="%(action_report_school_transfer_certificate)d" string="Print TC" type="action"
+                            invisible="state != 'issued' or certificate_type != 'tc'"/>
+                    <button name="%(action_report_school_bonafide_certificate)d" string="Print Bonafide" type="action"
+                            invisible="state != 'issued' or certificate_type != 'bonafide'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,issued"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="certificate_no" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="certificate_type"/>
+                            <field name="student_id"/>
+                            <field name="academic_year_id"/>
+                            <field name="issue_date"/>
+                        </group>
+                        <group invisible="certificate_type != 'tc'">
+                            <field name="last_class_studied"/>
+                            <field name="date_of_leaving"/>
+                            <field name="whole_school_attendance"/>
+                            <field name="conduct"/>
+                            <field name="qualified_for_promotion"/>
+                        </group>
+                    </group>
+                    <field name="reason" placeholder="Reason for leaving (for TC)..."
+                           invisible="certificate_type != 'tc'"/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_school_certificate" model="ir.actions.act_window">
+        <field name="name">Certificates</field>
+        <field name="res_model">school.certificate</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

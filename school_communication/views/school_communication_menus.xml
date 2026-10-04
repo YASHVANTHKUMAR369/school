@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_school_communication_root" name="Communication" parent="school_core.menu_school_root" sequence="45"/>
+    <menuitem id="menu_school_notice" name="Notices" parent="menu_school_communication_root"
+              action="action_school_notice" sequence="10"/>
+    <menuitem id="menu_school_communication_log" name="Dispatch Log" parent="menu_school_communication_root"
+              action="action_school_communication_log" sequence="20"/>
+    <menuitem id="menu_school_sms_provider_config" name="SMS Provider" parent="menu_school_communication_root"
+              action="action_school_sms_provider_config" sequence="30"
+              groups="school_core.group_school_admin"/>
+</odoo>

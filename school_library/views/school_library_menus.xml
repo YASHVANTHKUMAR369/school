@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_school_library_root" name="Library" parent="school_core.menu_school_root" sequence="60"/>
+    <menuitem id="menu_school_library_circulation" name="Circulation" parent="menu_school_library_root"
+              action="action_school_library_circulation" sequence="10"/>
+    <menuitem id="menu_school_library_member" name="Members" parent="menu_school_library_root"
+              action="action_school_library_member" sequence="20"/>
+    <menuitem id="menu_school_library_book" name="Books" parent="menu_school_library_root"
+              action="action_school_library_book" sequence="30"/>
+</odoo>

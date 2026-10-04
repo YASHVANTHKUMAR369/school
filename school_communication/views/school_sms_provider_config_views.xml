@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_school_sms_provider_config_list" model="ir.ui.view">
+        <field name="name">school.sms.provider.config.list</field>
+        <field name="model">school.sms.provider.config</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="name"/>
+                <field name="api_url"/>
+                <field name="sender_id"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_school_sms_provider_config" model="ir.actions.act_window">
+        <field name="name">SMS Provider</field>
+        <field name="res_model">school.sms.provider.config</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

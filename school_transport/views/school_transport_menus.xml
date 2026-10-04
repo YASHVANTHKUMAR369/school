@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_school_transport_root" name="Transport" parent="school_core.menu_school_root" sequence="50"/>
+    <menuitem id="menu_school_transport_allocation" name="Allocations" parent="menu_school_transport_root"
+              action="action_school_transport_allocation" sequence="10"/>
+    <menuitem id="menu_school_transport_route" name="Routes" parent="menu_school_transport_root"
+              action="action_school_transport_route" sequence="20"/>
+    <menuitem id="menu_school_transport_vehicle" name="Vehicles" parent="menu_school_transport_root"
+              action="action_school_transport_vehicle" sequence="30"/>
+    <menuitem id="menu_school_transport_driver" name="Drivers" parent="menu_school_transport_root"
+              action="action_school_transport_driver" sequence="40"/>
+</odoo>

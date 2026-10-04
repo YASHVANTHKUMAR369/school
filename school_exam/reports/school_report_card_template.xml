@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_school_report_card_document">
+        <t t-call="web.html_container">
+            <t t-set="school_config" t-value="env['school.config'].get_config()"/>
+            <t t-foreach="docs" t-as="o">
+                <div class="page">
+                    <div class="text-center mb-4">
+                        <img t-if="school_config.logo" t-att-src="image_data_uri(school_config.logo)"
+                             style="max-height: 80px;"/>
+                        <h2 t-out="school_config.name"/>
+                        <div t-out="school_config.address"/>
+                        <div t-if="school_config.affiliation_no">
+                            Affiliation No: <span t-out="school_config.affiliation_no"/>
+                        </div>
+                        <h3>Report Card</h3>
+                    </div>
+                    <table class="table table-sm table-bordered">
+                        <tr>
+                            <td><strong>Student Name</strong></td>
+                            <td t-out="o.student_id.name"/>
+                            <td><strong>Admission No.</strong></td>
+                            <td t-out="o.student_id.admission_no"/>
+                        </tr>
+                        <tr>
+                            <td><strong>Standard / Section</strong></td>
+                            <td>
+                                <span t-out="o.student_id.standard_id.name"/> /
+                                <span t-out="o.student_id.section_id.name"/>
+                            </td>
+                            <td><strong>Exam</strong></td>
+                            <td t-out="o.exam_id.name"/>
+                        </tr>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Subject</th>
+                                <th>Max Marks</th>
+                                <th>Marks Obtained</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="o.exam_id.result_ids.filtered(lambda r: r.student_id == o.student_id)" t-as="result">
+                                <td t-out="result.subject_id.name"/>
+                                <td t-out="result.max_marks"/>
+                                <td t-out="result.is_absent and 'Absent' or result.marks_obtained"/>
+                                <td t-out="result.grade"/>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tr>
+                            <td><strong>Total Marks</strong></td>
+                            <td>
+                                <span t-out="o.total_marks_obtained"/> / <span t-out="o.total_max_marks"/>
+                            </td>
+                            <td><strong>Percentage</strong></td>
+                            <td><span t-out="'%.2f' % o.percentage"/>%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Overall Grade</strong></td>
+                            <td t-out="o.overall_grade"/>
+                            <td><strong>Rank in Section</strong></td>
+                            <td t-out="o.rank_in_section"/>
+                        </tr>
+                        <tr>
+                            <td><strong>Attendance %</strong></td>
+                            <td><span t-out="'%.2f' % o.attendance_percentage"/>%</td>
+                            <td/>
+                            <td/>
+                        </tr>
+                    </table>
+                    <div class="row mt-5">
+                        <div class="col-6"/>
+                        <div class="col-6 text-center">
+                            <img t-if="school_config.principal_signature"
+                                 t-att-src="image_data_uri(school_config.principal_signature)"
+                                 style="max-height: 60px;"/>
+                            <div>Principal: <span t-out="school_config.principal_name"/></div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

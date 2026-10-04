@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_school_admission_enquiry_admin,school.admission.enquiry.admin,model_school_admission_enquiry,school_core.group_school_admin,1,1,1,1
+access_school_admission_enquiry_officer,school.admission.enquiry.officer,model_school_admission_enquiry,group_school_admission_officer,1,1,1,1
+access_school_admission_application_admin,school.admission.application.admin,model_school_admission_application,school_core.group_school_admin,1,1,1,1
+access_school_admission_application_officer,school.admission.application.officer,model_school_admission_application,group_school_admission_officer,1,1,1,1
+access_school_student_admin,school.student.admin,model_school_student,school_core.group_school_admin,1,1,1,1
+access_school_student_officer,school.student.officer,model_school_student,group_school_admission_officer,1,1,1,0
+access_school_student_teacher,school.student.teacher,model_school_student,school_core.group_school_teacher,1,0,0,0

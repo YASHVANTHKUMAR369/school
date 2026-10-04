@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="seq_school_staff_code" model="ir.sequence">
+        <field name="name">Staff Code</field>
+        <field name="code">school.staff.code</field>
+        <field name="prefix">STF</field>
+        <field name="padding">4</field>
+        <field name="number_next">1</field>
+        <field name="number_increment">1</field>
+    </record>
+</odoo>

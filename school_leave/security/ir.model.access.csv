@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_school_leave_type_admin,school.leave.type.admin,model_school_leave_type,school_core.group_school_admin,1,1,1,1
+access_school_leave_type_teacher,school.leave.type.teacher,model_school_leave_type,school_core.group_school_teacher,1,0,0,0
+access_school_leave_request_admin,school.leave.request.admin,model_school_leave_request,school_core.group_school_admin,1,1,1,1
+access_school_leave_request_principal,school.leave.request.principal,model_school_leave_request,school_core.group_school_principal,1,1,1,0
+access_school_leave_request_teacher,school.leave.request.teacher,model_school_leave_request,school_core.group_school_teacher,1,1,1,0

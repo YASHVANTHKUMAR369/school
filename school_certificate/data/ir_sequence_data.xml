@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="seq_school_certificate_tc" model="ir.sequence">
+        <field name="name">Transfer Certificate Number</field>
+        <field name="code">school.certificate.tc</field>
+        <field name="prefix">TC%(year)s</field>
+        <field name="padding">4</field>
+    </record>
+    <record id="seq_school_certificate_bonafide" model="ir.sequence">
+        <field name="name">Bonafide Certificate Number</field>
+        <field name="code">school.certificate.bonafide</field>
+        <field name="prefix">BON%(year)s</field>
+        <field name="padding">4</field>
+    </record>
+    <record id="seq_school_certificate_id_card" model="ir.sequence">
+        <field name="name">ID Card Number</field>
+        <field name="code">school.certificate.id_card</field>
+        <field name="prefix">IDC%(year)s</field>
+        <field name="padding">4</field>
+    </record>
+</odoo>

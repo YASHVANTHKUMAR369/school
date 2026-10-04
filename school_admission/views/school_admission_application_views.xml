@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_school_admission_application_list" model="ir.ui.view">
+        <field name="name">school.admission.application.list</field>
+        <field name="model">school.admission.application</field>
+        <field name="arch" type="xml">
+            <list decoration-success="state == 'admitted'" decoration-danger="state == 'rejected'">
+                <field name="name"/>
+                <field name="child_name"/>
+                <field name="standard_applied_id"/>
+                <field name="academic_year_id"/>
+                <field name="mobile"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_school_admission_application_form" model="ir.ui.view">
+        <field name="name">school.admission.application.form</field>
+        <field name="model">school.admission.application</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_submit" string="Submit" type="object"
+                            invisible="state != 'draft'"/>
+                    <button name="action_schedule_interview" string="Schedule Interview" type="object"
+                            invisible="state != 'submitted'"/>
+                    <button name="action_mark_interview_done" string="Interview Done" type="object"
+                            invisible="state != 'interview_scheduled'"/>
+                    <button name="action_admit" string="Admit" type="object" class="oe_highlight"
+                            invisible="state not in ('interview_done', 'submitted', 'waitlisted')"/>
+                    <button name="action_waitlist" string="Waitlist" type="object"
+                            invisible="state not in ('interview_done',)"/>
+                    <button name="action_reject" string="Reject" type="object"
+                            invisible="state in ('admitted', 'rejected')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,submitted,interview_scheduled,interview_done,admitted"/>
+                </header>
+                <sheet>
+                    <field name="photo" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1><field name="child_name" placeholder="Applicant Name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="enquiry_id" readonly="1"/>
+                            <field name="academic_year_id"/>
+                            <field name="standard_applied_id"/>
+                            <field name="dob"/>
+                            <field name="gender"/>
+                            <field name="previous_school"/>
+                        </group>
+                        <group>
+                            <field name="mobile"/>
+                            <field name="email"/>
+                            <field name="student_id" readonly="1" invisible="not student_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Interview">
+                            <group>
+                                <field name="interview_date"/>
+                                <field name="interview_score"/>
+                                <field name="interview_remark"/>
+                            </group>
+                        </page>
+                        <page string="Rejection" invisible="state != 'rejected'">
+                            <field name="reject_reason"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_school_admission_application" model="ir.actions.act_window">
+        <field name="name">Applications</field>
+        <field name="res_model">school.admission.application</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

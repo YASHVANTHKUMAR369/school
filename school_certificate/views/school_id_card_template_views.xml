@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_school_id_card_template_list" model="ir.ui.view">
+        <field name="name">school.id.card.template.list</field>
+        <field name="model">school.id.card.template</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="name"/>
+                <field name="standard_ids" widget="many2many_tags"/>
+                <field name="valid_until"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_school_id_card_template" model="ir.actions.act_window">
+        <field name="name">ID Card Templates</field>
+        <field name="res_model">school.id.card.template</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="leave_type_casual" model="school.leave.type">
+        <field name="name">Casual Leave</field>
+        <field name="applicable_to">both</field>
+        <field name="max_days_per_year">12</field>
+    </record>
+    <record id="leave_type_sick" model="school.leave.type">
+        <field name="name">Sick Leave</field>
+        <field name="applicable_to">both</field>
+        <field name="max_days_per_year">10</field>
+    </record>
+    <record id="leave_type_earned" model="school.leave.type">
+        <field name="name">Earned Leave</field>
+        <field name="applicable_to">staff</field>
+        <field name="max_days_per_year">15</field>
+        <field name="carry_forward">True</field>
+    </record>
+</odoo>

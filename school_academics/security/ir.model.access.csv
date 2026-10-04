@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_school_timetable_slot_admin,school.timetable.slot.admin,model_school_timetable_slot,school_core.group_school_admin,1,1,1,1
+access_school_timetable_slot_teacher,school.timetable.slot.teacher,model_school_timetable_slot,school_core.group_school_teacher,1,0,0,0
+access_school_syllabus_topic_admin,school.syllabus.topic.admin,model_school_syllabus_topic,school_core.group_school_admin,1,1,1,1
+access_school_syllabus_topic_teacher,school.syllabus.topic.teacher,model_school_syllabus_topic,school_core.group_school_teacher,1,1,1,0
+access_school_homework_admin,school.homework.admin,model_school_homework,school_core.group_school_admin,1,1,1,1
+access_school_homework_teacher,school.homework.teacher,model_school_homework,school_core.group_school_teacher,1,1,1,0
+access_school_homework_submission_admin,school.homework.submission.admin,model_school_homework_submission,school_core.group_school_admin,1,1,1,1
+access_school_homework_submission_teacher,school.homework.submission.teacher,model_school_homework_submission,school_core.group_school_teacher,1,1,1,0

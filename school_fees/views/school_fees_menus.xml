@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_school_fees_root" name="Fees" parent="school_core.menu_school_root" sequence="40"/>
+    <menuitem id="menu_school_fee_invoice" name="Invoices" parent="menu_school_fees_root"
+              action="action_school_fee_invoice" sequence="10"/>
+    <menuitem id="menu_school_fee_payment" name="Payments" parent="menu_school_fees_root"
+              action="action_school_fee_payment" sequence="20"/>
+    <menuitem id="menu_school_fee_bulk_invoice" name="Bulk Generate Invoices" parent="menu_school_fees_root"
+              action="action_school_fee_bulk_invoice_wizard" sequence="25"/>
+    <menuitem id="menu_school_fee_config" name="Configuration" parent="menu_school_fees_root"
+              sequence="90" groups="school_core.group_school_admin"/>
+    <menuitem id="menu_school_fee_head" name="Fee Heads" parent="menu_school_fee_config"
+              action="action_school_fee_head" sequence="10"/>
+    <menuitem id="menu_school_fee_structure" name="Fee Structures" parent="menu_school_fee_config"
+              action="action_school_fee_structure" sequence="20"/>
+    <menuitem id="menu_school_fee_late_fee_rule" name="Late Fee Rules" parent="menu_school_fee_config"
+              action="action_school_fee_late_fee_rule" sequence="30"/>
+</odoo>

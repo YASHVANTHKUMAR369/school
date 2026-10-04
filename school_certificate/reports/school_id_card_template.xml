@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_school_id_card_document">
+        <t t-call="web.html_container">
+            <t t-set="school_config" t-value="env['school.config'].get_config()"/>
+            <t t-foreach="docs" t-as="o">
+                <div class="page" style="width: 3.375in; height: 2.125in; border: 1px solid #333; padding: 8px;">
+                    <div class="text-center">
+                        <strong t-out="school_config.name" style="font-size: 12px;"/>
+                    </div>
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 35%; vertical-align: top;">
+                                <img t-if="o.photo" t-att-src="image_data_uri(o.photo)"
+                                     style="max-width: 80px; max-height: 90px;"/>
+                            </td>
+                            <td style="vertical-align: top; font-size: 10px;">
+                                <div><strong t-out="o.name"/></div>
+                                <div>Adm. No: <span t-out="o.admission_no"/></div>
+                                <div>Class: <span t-out="o.standard_id.name"/> - <span t-out="o.section_id.name"/></div>
+                                <div>DOB: <span t-out="o.dob"/></div>
+                                <div>Blood Group: <span t-out="o.blood_group"/></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

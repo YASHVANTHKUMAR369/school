@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_school_certificate_root" name="Certificates" parent="school_core.menu_school_root" sequence="65"/>
+    <menuitem id="menu_school_certificate" name="Certificates" parent="menu_school_certificate_root"
+              action="action_school_certificate" sequence="10"/>
+    <menuitem id="menu_school_id_card_template" name="ID Card Templates" parent="menu_school_certificate_root"
+              action="action_school_id_card_template" sequence="20"
+              groups="school_core.group_school_admin"/>
+</odoo>

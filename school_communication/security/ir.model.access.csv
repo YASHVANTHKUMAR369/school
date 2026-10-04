@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_school_notice_admin,school.notice.admin,model_school_notice,school_core.group_school_admin,1,1,1,1
+access_school_notice_teacher,school.notice.teacher,model_school_notice,school_core.group_school_teacher,1,1,1,0
+access_school_sms_provider_config_admin,school.sms.provider.config.admin,model_school_sms_provider_config,school_core.group_school_admin,1,1,1,1
+access_school_communication_log_admin,school.communication.log.admin,model_school_communication_log,school_core.group_school_admin,1,1,1,1
+access_school_communication_log_teacher,school.communication.log.teacher,model_school_communication_log,school_core.group_school_teacher,1,0,0,0

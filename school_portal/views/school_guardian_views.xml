@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_school_guardian_form_inherit_portal" model="ir.ui.view">
+        <field name="name">school.guardian.form.inherit.portal</field>
+        <field name="model">school.guardian</field>
+        <field name="inherit_id" ref="school_core.view_school_guardian_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='is_primary_contact']" position="after">
+                <field name="user_id" readonly="1"/>
+                <field name="portal_access_state" readonly="1" widget="badge"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

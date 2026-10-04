@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_school_guardian_portal,school.guardian.portal,school_core.model_school_guardian,base.group_portal,1,0,0,0
+access_school_student_portal,school.student.portal,school_admission.model_school_student,base.group_portal,1,0,0,0
+access_school_student_attendance_portal,school.student.attendance.portal,school_attendance.model_school_student_attendance,base.group_portal,1,0,0,0
+access_school_timetable_slot_portal,school.timetable.slot.portal,school_academics.model_school_timetable_slot,base.group_portal,1,0,0,0
+access_school_homework_portal,school.homework.portal,school_academics.model_school_homework,base.group_portal,1,0,0,0
+access_school_homework_submission_portal,school.homework.submission.portal,school_academics.model_school_homework_submission,base.group_portal,1,1,0,0
+access_school_exam_result_portal,school.exam.result.portal,school_exam.model_school_exam_result,base.group_portal,1,0,0,0
+access_school_report_card_portal,school.report.card.portal,school_exam.model_school_report_card,base.group_portal,1,0,0,0
+access_school_fee_invoice_portal,school.fee.invoice.portal,school_fees.model_school_fee_invoice,base.group_portal,1,0,0,0
+access_school_fee_payment_portal,school.fee.payment.portal,school_fees.model_school_fee_payment,base.group_portal,1,0,0,0
+access_school_transport_allocation_portal,school.transport.allocation.portal,school_transport.model_school_transport_allocation,base.group_portal,1,0,0,0
+access_school_hostel_allocation_portal,school.hostel.allocation.portal,school_hostel.model_school_hostel_allocation,base.group_portal,1,0,0,0
+access_school_library_member_portal,school.library.member.portal,school_library.model_school_library_member,base.group_portal,1,0,0,0
+access_school_library_circulation_portal,school.library.circulation.portal,school_library.model_school_library_circulation,base.group_portal,1,0,0,0
+access_school_notice_portal,school.notice.portal,school_communication.model_school_notice,base.group_portal,1,0,0,0
+access_school_portal_grant_wizard_admin,school.portal.grant.wizard.admin,model_school_portal_grant_wizard,school_core.group_school_admin,1,1,1,1

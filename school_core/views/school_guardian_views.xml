@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_school_guardian_list" model="ir.ui.view">
+        <field name="name">school.guardian.list</field>
+        <field name="model">school.guardian</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="relation"/>
+                <field name="mobile"/>
+                <field name="email"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_school_guardian_form" model="ir.ui.view">
+        <field name="name">school.guardian.form</field>
+        <field name="model">school.guardian</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Guardian Name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="relation"/>
+                            <field name="mobile"/>
+                            <field name="email"/>
+                            <field name="occupation"/>
+                            <field name="aadhar_no"/>
+                            <field name="is_primary_contact"/>
+                        </group>
+                        <group string="Address">
+                            <field name="street"/>
+                            <field name="city"/>
+                            <field name="state"/>
+                            <field name="zip"/>
+                            <field name="country_id"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_school_guardian" model="ir.actions.act_window">
+        <field name="name">Guardians</field>
+        <field name="res_model">school.guardian</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

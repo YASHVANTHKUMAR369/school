@@ -1,0 +1,21 @@
+{
+    'name': 'School Library',
+    'version': '19.0.1.0.0',
+    'category': 'School Management',
+    'summary': 'Book catalog and circulation (issue/return/fine)',
+    'author': 'Yashvanth Kumar',
+    'license': 'LGPL-3',
+    'depends': ['school_core', 'school_admission', 'mail'],
+    'data': [
+        'security/school_library_security.xml',
+        'security/ir.model.access.csv',
+        'data/ir_sequence_data.xml',
+        'views/school_library_book_views.xml',
+        'views/school_library_member_views.xml',
+        'views/school_library_circulation_views.xml',
+        'views/school_library_menus.xml',
+    ],
+    'installable': True,
+    'application': False,
+    'auto_install': False,
+}

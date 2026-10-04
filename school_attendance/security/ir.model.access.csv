@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_school_student_attendance_admin,school.student.attendance.admin,model_school_student_attendance,school_core.group_school_admin,1,1,1,1
+access_school_student_attendance_teacher,school.student.attendance.teacher,model_school_student_attendance,school_core.group_school_teacher,1,1,1,0
+access_school_staff_attendance_admin,school.staff.attendance.admin,model_school_staff_attendance,school_core.group_school_admin,1,1,1,1
+access_school_staff_attendance_principal,school.staff.attendance.principal,model_school_staff_attendance,school_core.group_school_principal,1,1,1,0
+access_school_attendance_register_wizard_teacher,school.attendance.register.wizard.teacher,model_school_attendance_register_wizard,school_core.group_school_teacher,1,1,1,1
+access_school_attendance_register_wizard_line_teacher,school.attendance.register.wizard.line.teacher,model_school_attendance_register_wizard_line,school_core.group_school_teacher,1,1,1,1

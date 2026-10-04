@@ -1,0 +1,23 @@
+{
+    'name': 'School HR',
+    'version': '19.0.1.0.0',
+    'category': 'School Management',
+    'summary': 'Staff employment details and a lightweight payroll ledger',
+    'author': 'Yashvanth Kumar',
+    'license': 'LGPL-3',
+    'depends': ['school_core', 'school_leave', 'mail'],
+    'data': [
+        'security/school_hr_security.xml',
+        'security/ir.model.access.csv',
+        'data/ir_sequence_data.xml',
+        'views/school_department_views.xml',
+        'views/school_designation_views.xml',
+        'views/school_staff_views.xml',
+        'views/school_salary_structure_views.xml',
+        'views/school_payslip_views.xml',
+        'views/school_hr_menus.xml',
+    ],
+    'installable': True,
+    'application': False,
+    'auto_install': False,
+}

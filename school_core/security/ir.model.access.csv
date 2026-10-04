@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_school_academic_year_admin,school.academic.year.admin,model_school_academic_year,group_school_admin,1,1,1,1
+access_school_academic_year_teacher,school.academic.year.teacher,model_school_academic_year,group_school_teacher,1,0,0,0
+access_school_board_admin,school.board.admin,model_school_board,group_school_admin,1,1,1,1
+access_school_board_teacher,school.board.teacher,model_school_board,group_school_teacher,1,0,0,0
+access_school_standard_admin,school.standard.admin,model_school_standard,group_school_admin,1,1,1,1
+access_school_standard_teacher,school.standard.teacher,model_school_standard,group_school_teacher,1,0,0,0
+access_school_section_admin,school.section.admin,model_school_section,group_school_admin,1,1,1,1
+access_school_section_teacher,school.section.teacher,model_school_section,group_school_teacher,1,0,0,0
+access_school_subject_admin,school.subject.admin,model_school_subject,group_school_admin,1,1,1,1
+access_school_subject_teacher,school.subject.teacher,model_school_subject,group_school_teacher,1,0,0,0
+access_school_staff_admin,school.staff.admin,model_school_staff,group_school_admin,1,1,1,1
+access_school_staff_teacher,school.staff.teacher,model_school_staff,group_school_teacher,1,0,0,0
+access_school_guardian_admin,school.guardian.admin,model_school_guardian,group_school_admin,1,1,1,1
+access_school_guardian_teacher,school.guardian.teacher,model_school_guardian,group_school_teacher,1,0,0,0
+access_school_config_admin,school.config.admin,model_school_config,group_school_admin,1,1,1,1

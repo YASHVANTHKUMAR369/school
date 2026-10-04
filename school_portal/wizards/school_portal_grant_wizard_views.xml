@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_school_portal_grant_wizard_form" model="ir.ui.view">
+        <field name="name">school.portal.grant.wizard.form</field>
+        <field name="model">school.portal.grant.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <p>
+                    Grant portal (parent) login access to the selected guardians. Each guardian
+                    must have an email address set. An invite email with a password-setup link
+                    will be sent.
+                </p>
+                <field name="guardian_ids" widget="many2many_tags"/>
+                <footer>
+                    <button name="action_grant" string="Grant Access" type="object" class="btn-primary"/>
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_school_portal_grant_wizard" model="ir.actions.act_window">
+        <field name="name">Grant Portal Access</field>
+        <field name="res_model">school.portal.grant.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="school_core.model_school_guardian"/>
+        <field name="binding_view_types">list,form</field>
+    </record>
+</odoo>

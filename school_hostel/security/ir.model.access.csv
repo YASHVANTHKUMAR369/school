@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_school_hostel_admin,school.hostel.admin,model_school_hostel,school_core.group_school_admin,1,1,1,1
+access_school_hostel_warden,school.hostel.warden,model_school_hostel,group_school_hostel_warden,1,1,0,0
+access_school_hostel_room_admin,school.hostel.room.admin,model_school_hostel_room,school_core.group_school_admin,1,1,1,1
+access_school_hostel_room_warden,school.hostel.room.warden,model_school_hostel_room,group_school_hostel_warden,1,1,1,0
+access_school_hostel_bed_admin,school.hostel.bed.admin,model_school_hostel_bed,school_core.group_school_admin,1,1,1,1
+access_school_hostel_bed_warden,school.hostel.bed.warden,model_school_hostel_bed,group_school_hostel_warden,1,1,1,0
+access_school_hostel_allocation_admin,school.hostel.allocation.admin,model_school_hostel_allocation,school_core.group_school_admin,1,1,1,1
+access_school_hostel_allocation_warden,school.hostel.allocation.warden,model_school_hostel_allocation,group_school_hostel_warden,1,1,1,0

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_school_staff_form_inherit_hr" model="ir.ui.view">
+        <field name="name">school.staff.form.inherit.hr</field>
+        <field name="model">school.staff</field>
+        <field name="inherit_id" ref="school_core.view_school_staff_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="before">
+                <group string="Employment Details">
+                    <field name="department_id"/>
+                    <field name="designation_id"/>
+                    <field name="date_of_joining"/>
+                    <field name="employment_type"/>
+                    <field name="basic_salary"/>
+                </group>
+                <group string="Bank Details">
+                    <field name="pan_no"/>
+                    <field name="bank_name"/>
+                    <field name="bank_account_no"/>
+                    <field name="ifsc_code"/>
+                </group>
+            </xpath>
+            <xpath expr="//page[1]" position="before">
+                <page string="Payslips">
+                    <field name="payslip_ids" readonly="1">
+                        <list>
+                            <field name="name"/>
+                            <field name="month"/>
+                            <field name="year"/>
+                            <field name="net_pay"/>
+                            <field name="state" widget="badge"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

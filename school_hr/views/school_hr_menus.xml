@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_school_hr_root" name="HR" parent="school_core.menu_school_root" sequence="70"/>
+    <menuitem id="menu_school_payslip" name="Payslips" parent="menu_school_hr_root"
+              action="action_school_payslip" sequence="10"/>
+    <menuitem id="menu_school_hr_config" name="Configuration" parent="menu_school_hr_root"
+              sequence="90" groups="school_core.group_school_admin"/>
+    <menuitem id="menu_school_department" name="Departments" parent="menu_school_hr_config"
+              action="action_school_department" sequence="10"/>
+    <menuitem id="menu_school_designation" name="Designations" parent="menu_school_hr_config"
+              action="action_school_designation" sequence="20"/>
+    <menuitem id="menu_school_salary_structure" name="Salary Structures" parent="menu_school_hr_config"
+              action="action_school_salary_structure" sequence="30"/>
+</odoo>

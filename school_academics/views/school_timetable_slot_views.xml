@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_school_timetable_slot_list" model="ir.ui.view">
+        <field name="name">school.timetable.slot.list</field>
+        <field name="model">school.timetable.slot</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="section_id"/>
+                <field name="day_of_week"/>
+                <field name="period_no"/>
+                <field name="time_from" widget="float_time"/>
+                <field name="time_to" widget="float_time"/>
+                <field name="subject_id"/>
+                <field name="staff_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_school_timetable_slot_search" model="ir.ui.view">
+        <field name="name">school.timetable.slot.search</field>
+        <field name="model">school.timetable.slot</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="section_id"/>
+                <field name="staff_id"/>
+                <group>
+                    <filter name="group_section" string="Section" context="{'group_by': 'section_id'}"/>
+                    <filter name="group_day" string="Day" context="{'group_by': 'day_of_week'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_school_timetable_slot" model="ir.actions.act_window">
+        <field name="name">Timetable</field>
+        <field name="res_model">school.timetable.slot</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_group_section': 1}</field>
+    </record>
+</odoo>

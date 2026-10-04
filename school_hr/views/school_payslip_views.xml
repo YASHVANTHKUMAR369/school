@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_school_payslip_list" model="ir.ui.view">
+        <field name="name">school.payslip.list</field>
+        <field name="model">school.payslip</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="staff_id"/>
+                <field name="month"/>
+                <field name="year"/>
+                <field name="gross_pay"/>
+                <field name="total_deduction"/>
+                <field name="net_pay"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_school_payslip_form" model="ir.ui.view">
+        <field name="name">school.payslip.form</field>
+        <field name="model">school.payslip</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_compute" string="Compute" type="object"
+                            class="oe_highlight" invisible="state != 'draft'"/>
+                    <button name="action_confirm" string="Confirm" type="object"
+                            invisible="state != 'computed'"/>
+                    <button name="action_mark_paid" string="Mark Paid" type="object"
+                            invisible="state != 'confirmed'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,computed,confirmed,paid"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="staff_id"/>
+                            <field name="structure_id"/>
+                        </group>
+                        <group>
+                            <field name="month"/>
+                            <field name="year"/>
+                        </group>
+                    </group>
+                    <field name="line_ids" readonly="1">
+                        <list>
+                            <field name="component_name"/>
+                            <field name="component_type"/>
+                            <field name="amount"/>
+                        </list>
+                    </field>
+                    <group class="oe_subtotal_footer">
+                        <field name="gross_pay" readonly="1"/>
+                        <field name="total_deduction" readonly="1"/>
+                        <field name="net_pay" readonly="1"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_school_payslip" model="ir.actions.act_window">
+        <field name="name">Payslips</field>
+        <field name="res_model">school.payslip</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

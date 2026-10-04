@@ -1,0 +1,21 @@
+{
+    'name': 'School Transport',
+    'version': '19.0.1.0.0',
+    'category': 'School Management',
+    'summary': 'Vehicles, routes, stops and student transport allocation',
+    'author': 'Yashvanth Kumar',
+    'license': 'LGPL-3',
+    'depends': ['school_core', 'school_admission', 'mail'],
+    'data': [
+        'security/school_transport_security.xml',
+        'security/ir.model.access.csv',
+        'views/school_transport_driver_views.xml',
+        'views/school_transport_vehicle_views.xml',
+        'views/school_transport_route_views.xml',
+        'views/school_transport_allocation_views.xml',
+        'views/school_transport_menus.xml',
+    ],
+    'installable': True,
+    'application': False,
+    'auto_install': False,
+}
